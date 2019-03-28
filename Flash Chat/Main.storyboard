@@ -276,6 +276,11 @@
                                 <action selector="logOutPressed:" destination="kUQ-F0-fsr" id="BTG-vG-774"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="newChat" id="oJg-gd-PaV">
+                            <connections>
+                                <segue destination="DvL-9Q-RNV" kind="modal" identifier="goToCreateNewChat" id="khQ-jf-OLx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
@@ -285,6 +290,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53q-id-zZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1869.5999999999999" y="-40.029985007496258"/>
+        </scene>
+        <!--Create New Chat-->
+        <scene sceneID="rW3-Ul-YAO">
+            <objects>
+                <tableViewController title="Create New Chat" id="Qdk-yU-YTm" customClass="CreateNewChatViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="g24-01-djN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pZW-vy-D8P">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pZW-vy-D8P" id="bLk-uD-erG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Qdk-yU-YTm" id="dhw-1R-WI0"/>
+                            <outlet property="delegate" destination="Qdk-yU-YTm" id="1OH-wA-vka"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Create New Chat" id="5Nx-Pr-G6w">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ia4-2G-HnL">
+                            <connections>
+                                <action selector="cancelPressed:" destination="Qdk-yU-YTm" id="wFN-dl-BMX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6U-7f-B5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3519.1999999999998" y="-667.01649175412297"/>
         </scene>
         <!--Flash Chat-->
         <scene sceneID="ufC-wZ-h7g">
@@ -395,10 +435,29 @@
             </objects>
             <point key="canvasLocation" x="-534.39999999999998" y="10.794602698650676"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wzd-0z-qdP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DvL-9Q-RNV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NXx-qm-EHm">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qdk-yU-YTm" kind="relationship" relationship="rootViewController" id="GVG-LS-j4x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2di-GQ-LwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-667.01649175412297"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="1280" height="949"/>
         <image name="background1" width="1800" height="1192.5"/>
+        <image name="newChat" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x71-rO-BKA"/>
