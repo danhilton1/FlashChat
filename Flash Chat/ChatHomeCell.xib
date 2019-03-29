@@ -40,17 +40,26 @@
                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJl-QV-dCc" userLabel="User Label">
+                        <rect key="frame" x="63" y="10" width="0.0" height="39.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="yGU-13-mXA" firstAttribute="centerY" secondItem="qf6-GD-G2h" secondAttribute="centerY" id="3x2-fq-N8K"/>
+                    <constraint firstAttribute="bottom" secondItem="sJl-QV-dCc" secondAttribute="bottom" constant="10" id="6VS-hW-t0g"/>
                     <constraint firstItem="IJS-gS-zSQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="72y-Ya-BMW"/>
                     <constraint firstItem="IJS-gS-zSQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JYg-Xn-YLE"/>
                     <constraint firstItem="yGU-13-mXA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="UN3-9J-5B2"/>
+                    <constraint firstItem="sJl-QV-dCc" firstAttribute="leading" secondItem="IJS-gS-zSQ" secondAttribute="trailing" constant="8" id="bB5-vf-sgB"/>
                     <constraint firstAttribute="trailing" secondItem="qf6-GD-G2h" secondAttribute="trailing" id="dO6-dm-f2J"/>
                     <constraint firstAttribute="bottom" secondItem="IJS-gS-zSQ" secondAttribute="bottom" id="hQI-bm-cfV"/>
                     <constraint firstItem="qf6-GD-G2h" firstAttribute="leading" secondItem="IJS-gS-zSQ" secondAttribute="trailing" id="hcH-UL-GbH"/>
                     <constraint firstAttribute="bottom" secondItem="qf6-GD-G2h" secondAttribute="bottom" id="mz9-Co-Kk0"/>
                     <constraint firstItem="qf6-GD-G2h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rNc-PF-2fl"/>
+                    <constraint firstItem="sJl-QV-dCc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xzc-1E-b1l"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -58,6 +67,7 @@
                 <outlet property="avatarImage" destination="IJS-gS-zSQ" id="lBb-HR-hZY"/>
                 <outlet property="chatButton" destination="qf6-GD-G2h" id="Bg7-Oa-HPb"/>
                 <outlet property="chatLabel" destination="yGU-13-mXA" id="8z2-BO-d0I"/>
+                <outlet property="userLabel" destination="sJl-QV-dCc" id="6Ag-wq-2xF"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="153.82308845577214"/>
         </tableViewCell>

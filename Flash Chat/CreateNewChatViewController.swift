@@ -61,7 +61,7 @@ class CreateNewChatViewController: UITableViewController {
 //    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return userDatabaseArray.count
     }
     
@@ -69,9 +69,10 @@ class CreateNewChatViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatHomeCell", for: indexPath) as! ChatHomeCell
         
+        cell.chatButton.backgroundColor = UIColor.clear
         cell.chatButton.addTarget(self, action: #selector(CreateNewChatViewController.chatButtonPressed), for: .touchUpInside)
-        cell.chatLabel.text = userDatabaseArray[indexPath.row]
-        tableView.rowHeight = 60
+        cell.userLabel.text = userDatabaseArray[indexPath.row]
+        tableView.rowHeight = 50
         
         
         return cell

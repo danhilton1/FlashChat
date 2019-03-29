@@ -13,6 +13,7 @@ class ChatHomeCell: UITableViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var chatLabel: UILabel!
     
+    @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var chatButton: UIButton!
     
     
