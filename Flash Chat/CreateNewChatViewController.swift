@@ -7,16 +7,44 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateNewChatViewController: UITableViewController {
     
-    let chatHomeViewController = ChatHomeViewController()
+    var userDatabaseArray = [String]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: "ChatHomeCell", bundle: nil), forCellReuseIdentifier: "chatHomeCell")
+
+        
+        fetchUsers()
+        
         
     }
+    
+    func fetchUsers() {
+        
+        Database.database().reference().child("Users").observe(.childAdded) { (snapshot) in
+            
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let user = User()
+                user.username = dictionary["User"] as? String
+                self.userDatabaseArray.append(user.username!)
+                //print(self.userDatabaseArray)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            
+        }
+        
+    }
+    
     
     @IBAction func cancelPressed(_ sender: Any) {
         
@@ -27,14 +55,33 @@ class CreateNewChatViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return userDatabaseArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatHomeCell", for: indexPath) as! ChatHomeCell
+        
+        cell.chatButton.addTarget(self, action: #selector(CreateNewChatViewController.chatButtonPressed), for: .touchUpInside)
+        cell.chatLabel.text = userDatabaseArray[indexPath.row]
+        tableView.rowHeight = 60
+        
+        
+        return cell
+        
+    }
+    
+    @objc func chatButtonPressed() {
+        
+        self.performSegue(withIdentifier: "goToChat", sender: self)
+        
     }
 
    
